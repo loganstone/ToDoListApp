@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         todoList.setOnItemClickListener { _, _, i, _ ->
             android.widget.Toast.makeText(this,
-                    "You Selected the item --> " + itemList[i],
+                    getString(R.string.toast_message_selected_item) + itemList[i],
                     android.widget.Toast.LENGTH_SHORT).show()
         }
 
