@@ -17,9 +17,17 @@ class MainActivity : AppCompatActivity() {
                 itemList)
 
         add.setOnClickListener {
-            itemList.add(editText.text.toString())
-            todoList.adapter = adapter
-            adapter.notifyDataSetChanged()
+            var todoText = editText.text.toString()
+            todoText = todoText.trim()
+            if (todoText.isEmpty()) {
+                android.widget.Toast.makeText(this,
+                        getString(R.string.toast_message_add_empty_text),
+                        android.widget.Toast.LENGTH_SHORT).show()
+            } else {
+                itemList.add(todoText)
+                todoList.adapter = adapter
+                adapter.notifyDataSetChanged()
+            }
             editText.text.clear()
         }
 
