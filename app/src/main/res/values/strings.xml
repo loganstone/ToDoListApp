@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">To-Do List App</string>
-    <string name="todo_input_text_box_hint">Add an Item</string>
+    <string name="todo_input_text_box_hint">Enter To Do</string>
     <string name="add_btn_text">ADD</string>
     <string name="delete_btn_text">DELETE</string>
     <string name="clear_btn_text">CLEAR</string>
-    <string name="title_text">My TO Do List</string>
+    <string name="title_text">My To Do List</string>
     <string name="toast_message_selected_item">You Selected the item: </string>
     <string name="toast_message_add_empty_text">Please enter Todo</string>
 </resources>
