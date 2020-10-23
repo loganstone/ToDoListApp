@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         add.setOnClickListener {
             itemList.add(editText.text.toString())
-            listView.adapter = adapter
+            todoList.adapter = adapter
             adapter.notifyDataSetChanged()
             editText.text.clear()
         }
@@ -28,15 +28,15 @@ class MainActivity : AppCompatActivity() {
             adapter.notifyDataSetChanged()
         }
 
-        listView.setOnItemClickListener{ adapterView, view, i, l ->
+        todoList.setOnItemClickListener { _, _, i, _ ->
             android.widget.Toast.makeText(this,
-                    "You Selected the item --> " + itemList.get(i),
+                    "You Selected the item --> " + itemList[i],
                     android.widget.Toast.LENGTH_SHORT).show()
         }
 
         delete.setOnClickListener {
-            val position: SparseBooleanArray = listView.checkedItemPositions
-            val count = listView.count
+            val position: SparseBooleanArray = todoList.checkedItemPositions
+            val count = todoList.count
             var index = count - 1
             while (index >= 0) {
                 if (position.get(index)) {
@@ -47,5 +47,10 @@ class MainActivity : AppCompatActivity() {
             position.clear()
             adapter.notifyDataSetChanged()
         }
+
+        var locale = IntArray(2)
+        titleText.getLocationOnScreen(locale)
+        val updatedHeight = locale[1] + titleText.height
+        todoList.layoutParams.height = updatedHeight
     }
 }
